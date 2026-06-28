@@ -1,0 +1,50 @@
+# Python cache / build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments / local environment files
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Logs / raw run outputs
+*.log
+logs/
+*.ps1.log
+*.powershell.log
+internal_run_logs/
+regression_run_logs/
+validation_outputs/
+tmp_validation/
+
+# Local generated article outputs / Markdown outputs
+outputs/
+output/
+export/
+exports/
+news_*.md
+*.generated.md
+
+# Private notes / archive notes
+notes/
+
+# Private regression URL list
+tests/regression_urls.txt
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local portfolio-only artifacts
+news_md_codebase_course.html

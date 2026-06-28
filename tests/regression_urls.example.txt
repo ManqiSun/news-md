@@ -1,0 +1,17 @@
+# news-md regression URL example list
+#
+# This is a public-safe example file.
+# The real internal regression list is not included in this repository because it may contain
+# live article URLs, raw validation targets, and private review context.
+#
+# Format:
+# - one URL per line
+# - blank lines are ignored
+# - lines starting with # are comments
+#
+# Replace the placeholder URLs below with your own test article URLs if you want to run
+# local validation.
+
+https://example-news-site-1.test/article/sample-001
+https://example-news-site-2.test/article/sample-002
+https://example-news-site-3.test/article/sample-003
