@@ -8,9 +8,9 @@
 
 Its input is one Korean news URL. Its output is Markdown. The core task is to extract the article body, clean visible noise, and preserve basic information for later use.
 
-The project came from my own content research workflow: before using AI translation, summarization, content analysis, or archive review, I often need a cleaner article text source first.
-
 ## Why this tool exists
+
+The project came from my own content research workflow: before using AI translation, summarization, content analysis, or archive review, I often need a cleaner article text source first.
 
 **1. If AI tools exist, why not just give them the link?**
 
