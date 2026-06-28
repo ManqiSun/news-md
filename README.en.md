@@ -4,13 +4,11 @@
 
 ## Overview
 
-`news-md` is a lightweight local CLI tool that turns a single Korean news article URL into cleaner, reviewable Markdown.
+`news-md` **is a lightweight local CLI tool that turns a single Korean news article URL into cleaner, reviewable Markdown.**
 
-The project came from my own content research workflow. When reading Korean news, I often need to extract the article body first, then use it for AI translation, summarization, content analysis, or archive review. Giving the URL directly to an AI tool is not always reliable, and manual copying often brings in ads, related-news blocks, copyright text, reporter information, and site navigation.
+Its input is one Korean news URL. Its output is Markdown. The core task is to extract the article body, clean visible noise, and preserve basic information for later use.
 
-`news-md` solves a small but frequent problem: prepare one Korean news page as a more reliable Markdown input for later review and AI-assisted work.
-
-It is not a large platform or a general-purpose crawler. It is a focused local workflow tool with clear boundaries.
+The project came from my own content research workflow: before using AI translation, summarization, content analysis, or archive review, I often need a cleaner article text source first.
 
 ## Why this tool exists
 
@@ -72,22 +70,6 @@ news-md "https://example.com/korean-news-article"
 ```
 
 The result is saved as Markdown. The output location can be adjusted through command options or local environment configuration.
-
-## Current boundaries
-
-`news-md` is suitable as a lightweight tool for personal content research and portfolio demonstration, but it should not be treated as a general released product.
-
-It is not:
-
-- a general-purpose crawler
-- a news monitoring system
-- an automatic translation system
-- a dashboard
-- a server or hosted service
-- a Public Release
-- a complete extraction solution for every website or layout
-
-It also does not guarantee perfect extraction for every Korean news article. Important materials should still be checked against the original page.
 
 ## Tech stack
 
