@@ -1,102 +1,107 @@
-# news-md
+# news-md | Korean News Article Cleaner
 
-[中文说明](README.md)
-
-A lightweight CLI tool for extracting Korean news article text into Markdown.
+[中文](README.md)
 
 ## Overview
 
-`news-md` is a small local CLI workflow for turning a single Korean news article URL into cleaned Markdown.
+`news-md` is a lightweight local CLI tool that turns a single Korean news article URL into cleaner, reviewable Markdown.
 
-It is intended for personal content research workflows where extracted article text may later be used for AI translation, summarization, review, or archival notes. The project is currently in portfolio-ready documentation and internal validation preparation. It is not presented as a Public Release.
+The project came from my own content research workflow. When reading Korean news, I often need to extract the article body first, then use it for AI translation, summarization, content analysis, or archive review. Giving the URL directly to an AI tool is not always reliable, and manual copying often brings in ads, related-news blocks, copyright text, reporter information, and site navigation.
 
-## Why This Project Exists
+`news-md` solves a small but frequent problem: prepare one Korean news page as a more reliable Markdown input for later review and AI-assisted work.
 
-Directly giving news URLs to AI tools is not always reliable. News pages may involve blocking, SSL issues, redirects, dynamic loading, or noisy page structure.
+It is not a large platform or a general-purpose crawler. It is a focused local workflow tool with clear boundaries.
 
-Manually copying article text is repetitive and often includes ads, related articles, copyright blocks, reporter emails, or site navigation noise.
+## Why this tool exists
 
-A lightweight local workflow makes extraction more repeatable, reviewable, and easier to feed into downstream AI-assisted research steps.
+**1. If AI tools exist, why not just give them the link?**
 
-## Core Workflow
+News pages are not just article text. They may involve redirects, SSL issues, dynamic loading, access restrictions, or noisy page modules around the real article body. An AI tool may not always read the intended content reliably.
+
+**2. If the page opens in a browser, why not copy it manually?**
+
+Manual copying works once, but it does not scale well as a repeated research habit. Copied text often includes ads, recommendation lists, copyright blocks, reporter emails, navigation text, or duplicated fragments.
+
+**3. If extraction tools already exist, why build this?**
+
+General extraction tools provide a useful starting point, but my workflow needed Korean-news-specific cleanup, metadata retention, Markdown output, and regression-style review. `news-md` keeps those needs scoped to a small local tool instead of expanding into a platform.
+
+## Workflow
 
 ```text
 Korean news URL
-  -> article extraction
+  -> article body extraction
   -> visible noise cleanup
   -> Markdown output
-  -> AI translation / summarization / research archive
+  -> AI translation / summarization / content research / archive review
 ```
 
-## What It Does
+## Main features
 
 - Accepts a single Korean news article URL.
-- Extracts article-like content.
+- Extracts article-like body content.
 - Cleans obvious page noise where possible.
 - Saves Markdown output.
-- Records basic metadata where available, such as title, source, published time, extraction method, and quality status.
-- Supports validation through curated regression samples.
+- Records basic metadata such as title, source, published time, extraction method, and quality status.
+- Supports review through regression samples and human inspection.
 
-## What It Does Not Do
+## AI-assisted development
 
-- It is not a general-purpose crawler.
-- It is not a monitoring system.
-- It is not an automatic translation system.
-- It is not a dashboard.
-- It is not a hosted service or server.
-- It is not presented as a Public Release.
-- It does not guarantee perfect extraction for every Korean news site.
+This project is also an AI-assisted development case, but it is not presented as an “AI platform.” AI was used in concrete, reviewable parts of the work.
 
-## Project Status
+- GPT helped with requirement breakdown, scope decisions, README structure, validation ideas, and public documentation decisions.
+- Codex helped with code edits, local fixes, conflict resolution, GitHub upload preparation, and documentation cleanup.
+- I remained responsible for judging whether the need was real, whether outputs were usable, whether the scope was expanding, and what materials were safe to publish.
 
-- Current stage: v0.5 documentation preparation.
-- Latest archived implementation state: v0.4.1 archived.
-- Status: human-review quality fix passed with known limitations.
-- Current purpose: GitHub-ready / portfolio-ready documentation.
-- Release posture: not Public Release.
+## Project highlights
 
-## Validation Summary
-
-Validation was performed across multiple Korean news sites and real-world article samples. Results were reviewed by category, including pass, partial, problem, and failed cases.
-
-Known limitations are documented separately. Raw URL lists, PowerShell logs, and internal review notes are intentionally kept private.
-
-See:
-
-- [Validation Summary](docs/validation_summary.md)
-- [Limitations](docs/limitations.md)
-
-## Documentation
-
-Public-facing documentation:
-
-- [Project Overview](docs/project_overview.md): project scope, positioning, and workflow summary.
-- [Limitations](docs/limitations.md): known extraction limits and cases requiring human review.
-- [Validation Summary](docs/validation_summary.md): public-safe validation summary.
-- [Release History](docs/release_history.md): archived version notes and documentation-stage status.
-
-## Repository Safety Note
-
-A public-safe example regression file is provided at [tests/regression_urls.example.txt](tests/regression_urls.example.txt).
-
-Real regression URL lists and internal notes are excluded from public tracking. Local outputs, logs, caches, and private notes are ignored through `.gitignore`.
+- **Real workflow problem**: The project starts from a repeated content research task, not from an abstract AI demo idea.
+- **Lightweight tool design**: The workflow stays focused on one URL to Markdown, using a CLI to reduce repetitive cleanup.
+- **AI-assisted development**: GPT and Codex supported planning, editing, debugging, and documentation while human judgment controlled scope and quality.
+- **Testing and human review**: Outputs were reviewed across sample sets using categories such as pass, partial, problem, and failed.
+- **Public/private boundary awareness**: Public docs keep aggregate summaries and limitations, while real URL lists, raw logs, and internal review materials stay private.
 
 ## Usage
 
-The tool is designed for local PowerShell usage, either by passing a URL or following the local CLI prompt, depending on the configured batch wrapper.
+The tool is designed for local Windows / PowerShell usage, either through the batch wrapper or the local CLI prompt.
+
+Example:
 
 ```powershell
 news-md "https://example.com/korean-news-article"
 ```
 
-## Tech Stack
+The result is saved as Markdown. The output location can be adjusted through command options or local environment configuration.
+
+## Current boundaries
+
+`news-md` is suitable as a lightweight tool for personal content research and portfolio demonstration, but it should not be treated as a general released product.
+
+It is not:
+
+- a general-purpose crawler
+- a news monitoring system
+- an automatic translation system
+- a dashboard
+- a server or hosted service
+- a Public Release
+- a complete extraction solution for every website or layout
+
+It also does not guarantee perfect extraction for every Korean news article. Important materials should still be checked against the original page.
+
+## Tech stack
 
 - Python
-- PowerShell / Windows batch wrapper
+- Windows batch / PowerShell local usage
 - `url2md4ai` as the primary extraction approach
 - `trafilatura` fallback
 - BeautifulSoup-based metadata parsing
+- Markdown output with quality status signals
 
-## Portfolio Relevance
+## Related documents
 
-This project demonstrates practical problem framing, lightweight CLI workflow design, AI-assisted development, validation and regression thinking, public/private boundary control, and documentation discipline.
+- [Chinese README](README.md)
+- [Project Overview](docs/project_overview.md)
+- [Limitations](docs/limitations.md)
+- [Validation Summary](docs/validation_summary.md)
+- [Release History](docs/release_history.md)
